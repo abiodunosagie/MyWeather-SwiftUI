@@ -24,8 +24,19 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func requestLocation() {
         isLoading = true
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        
+        // Check authorization status before requesting location
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied, .restricted:
+            error = NSError(domain: kCLErrorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Location services are denied or restricted. Please enable location services in Settings."])
+            isLoading = false
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.requestLocation()
+        @unknown default:
+            break
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -64,3 +75,4 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 }
+

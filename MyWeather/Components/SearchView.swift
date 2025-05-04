@@ -17,11 +17,15 @@ struct SearchView: View {
             VStack {
                 TextField("Enter city name", text: $cityName)
                     .padding()
-                    .background(Color.white.opacity(0.2))
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                    .foregroundStyle(.white)
-                    .autocorrectionDisabled()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                        .padding(.horizontal)
+                        .foregroundColor(.black) // Makes typed text black
+                        .autocorrectionDisabled()
                 
                 Button {
                     if !cityName.isEmpty {
