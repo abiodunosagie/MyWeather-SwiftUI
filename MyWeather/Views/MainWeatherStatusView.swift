@@ -19,13 +19,16 @@ struct MainWeatherStatusView: View {
             Text(city)
                 .font(.system(size: 23, weight: .bold))
                 .foregroundStyle(.white)
+                .minimumScaleFactor(0.7)
+                .lineLimit(1)
+                .padding(.horizontal)
             
             Image(systemName: imageName)
                 .font(.system(size: 150, weight: .light))
-                .foregroundStyle(
-                   mode == .day ? Color.yellow : Color.white
-                )
-            Text("\(degree)°")
+                .foregroundStyle(mode == .day ? Color.yellow : Color.white)
+                .padding(.top,10)
+            
+            Text("\(temperature)°")
                 .font(.system(size: 35, weight: .bold))
                 .foregroundStyle(.white)
             

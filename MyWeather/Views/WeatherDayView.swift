@@ -12,7 +12,7 @@ struct WeatherDayView: View {
     var mode: DayTimeMode
     var weatherTitle: String
     var weatherIamge: Image
-    var weatherDegree: String
+    var temperature: Int
     
     var body: some View {
         
@@ -25,18 +25,10 @@ struct WeatherDayView: View {
                 .font(.system(size: 30))
                 .foregroundStyle(.white)
                 .frame(width: 50, height: 50)
-            Text("\(weatherDegree)°")
+            Text("\(temperature)°")
                 .bold()
                 .foregroundStyle(.white)
         }
     }
 }
 
-//#Preview {
-//    WeatherDayView(
-//        mode: .day,
-//        weatherTitle: "TUE",
-//        weatherIamge:Image(systemName: "cloud.sun.fill"),
-//        weatherDegree: "25",
-//    )
-//}

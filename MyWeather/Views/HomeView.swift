@@ -27,31 +27,31 @@ struct HomeView: View {
                             mode: viewModel.mode,
                             weatherTitle: "tue",
                             weatherIamge: Image(systemName: "cloud.sun.fill"),
-                            weatherDegree: "25"
+                            temperature: 25
                         )
                         WeatherDayView(
                             mode: viewModel.mode,
                             weatherTitle: "wed",
                             weatherIamge: Image(systemName: "cloud.sun.rain.fill"),
-                            weatherDegree: "18"
+                            temperature: 18
                         )
                         WeatherDayView(
                             mode: viewModel.mode,
                             weatherTitle: "thu",
                             weatherIamge: Image(systemName: "cloud.snow.fill"),
-                            weatherDegree: "10"
+                            temperature: 10
                         )
                         WeatherDayView(
                             mode: viewModel.mode,
                             weatherTitle: "fri",
                             weatherIamge: Image(systemName: "cloud.sun.fill"),
-                            weatherDegree: "26"
+                            temperature: 26
                         )
                         WeatherDayView(
                             mode: viewModel.mode,
                             weatherTitle: "sat",
                             weatherIamge: Image(systemName: "sun.max.fill"),
-                            weatherDegree: "32"
+                            temperature: 32
                         )
                     }
                
